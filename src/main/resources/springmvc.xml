@@ -18,7 +18,8 @@
 		<constructor-arg index="0" ref="userTransaction"></constructor-arg>
 		<constructor-arg index="1" ref="atomikosTransactionManager"></constructor-arg>
 	</bean>
-	<!-- 配置参与事务的类 -->
+	<!-- 使用xml配置事务,无需使用注解,service层就不依赖spring了 -->
+	
 	<!-- 事物切面配置 -->
 	<tx:advice id="advice" transaction-manager="transactionManager">
 		<tx:attributes>
