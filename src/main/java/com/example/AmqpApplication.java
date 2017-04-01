@@ -7,12 +7,14 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.ImportResource;
 /**
  * 此项目返回类型一切都是string类型省去{@code @ResponseBody}注解
  * 若想修改请看{@code com.example.custom.MappingConfig}中addHandlerMethodReturnValueHandler()方法
  * 
  * */
 @SpringBootApplication
+@ImportResource("classpath*:springmvc.xml")
 public class AmqpApplication implements CommandLineRunner {
 	@Autowired
 	ApplicationContext applicationContext;

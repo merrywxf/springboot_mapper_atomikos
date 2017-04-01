@@ -2,8 +2,6 @@ package com.example.service;
 
 import javax.annotation.Resource;
 
-import org.springframework.transaction.annotation.Transactional;
-
 import com.example.mapper.db01.CityMapper;
 import com.example.model.City;
 
@@ -20,10 +18,9 @@ public class CityServiceImpl implements CityService {
 	}
 
 	@Override
-	@Transactional
 	public Long insert(City city) {
 		this.cityMapper.insert(city);
-		// int x = 1 / 0;
+		int x = 1 / 0;
 		return city.getId();
 	}
 }

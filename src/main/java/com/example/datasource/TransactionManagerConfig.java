@@ -5,7 +5,6 @@ import javax.transaction.UserTransaction;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.DependsOn;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.jta.JtaTransactionManager;
@@ -31,11 +30,10 @@ public class TransactionManagerConfig {
 		return userTransactionManager;
 	}
 
-	@Bean(name = "transactionManager")
-	@DependsOn({ "userTransaction", "atomikosTransactionManager" })
+//	@Bean(name = "transactionManager")
+//	@DependsOn({ "userTransaction", "atomikosTransactionManager" })
 	public PlatformTransactionManager transactionManager() throws Throwable {
 		UserTransaction userTransaction = userTransaction();
-
 		JtaTransactionManager manager = new JtaTransactionManager(userTransaction, atomikosTransactionManager());
 		return manager;
 	}
